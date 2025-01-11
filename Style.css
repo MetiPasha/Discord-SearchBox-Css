@@ -69,6 +69,30 @@ input::placeholder {
   top: 0.27em;
   transform: 0 -50%;
   color: var(--foreground-color-dark);
+  opacity: 0;
+  rotate: 90deg;
+  pointer-events: none;
+  visibility: hidden;
+  border-radius: 0.25rem;
+  transition-behavior: discrete;
+  transition-property: opacity, rotate, visibility;
+  transition-duration: 1s;
+}
+
+/* has is the point of this css style*/
+
+.search-wrapper:has(.input:placeholder-shown) .search-icon {
+  opacity: 1;
+  pointer-events: all;
+  rotate: 0deg;
+  visibility: visible;
+}
+
+.search-wrapper:has(.input:not(:placeholder-shown)) .x-icon {
+  opacity: 1;
+  pointer-events: all;
+  rotate: 0deg;
+  visibility: visible;
 }
 
 /*with this we can make all buttons in whole app to be without effect (we just want the cursor be pointer)*/
